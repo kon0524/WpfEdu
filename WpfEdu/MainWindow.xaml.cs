@@ -24,5 +24,10 @@ namespace WpfEdu
 		{
 			InitializeComponent();
 		}
+
+		private void MyButton_Click(object sender, RoutedEventArgs e)
+		{
+			this.MyTextBox.Text = "こんにちわ世界";
+		}
 	}
 }

@@ -8,6 +8,6 @@
         Title="MainWindow" Height="100" Width="300">
     <StackPanel>
         <TextBox x:Name="MyTextBox" Text="Hello World"/>
-        <Button x:Name="MyButton" Content="押せ！"/>
+        <Button x:Name="MyButton" Content="押せ！" Click="MyButton_Click"/>
     </StackPanel>
 </Window>
