@@ -7,10 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfEdu;
+using Prism.Mvvm;
+using Prism.Commands;
 
 namespace WpfEdu.ViewModels
 {
-	class MainWindowViewModel : INotifyPropertyChanged
+	class MainWindowViewModel : BindableBase
 	{
 		/// <summary>
 		/// コンストラクタ
@@ -19,7 +21,10 @@ namespace WpfEdu.ViewModels
 		{
 			// 初期値を設定
 			MyText = "Hello World";
-			PushCommand = new PushCommand(this);
+			PushCommand = new DelegateCommand(() =>
+			{
+				MyText = "こんにちわ世界";
+			});
 		}
 
 		/// <summary>
@@ -29,30 +34,12 @@ namespace WpfEdu.ViewModels
 		public string MyText
 		{
 			get { return this.myText; }
-			set
-			{
-				this.myText = value;
-				NotifyPropertyChanged();
-			}
+			set { this.SetProperty(ref this.myText, value); }
 		}
 
 		/// <summary>
 		/// ボタン押下のコマンド
 		/// </summary>
-		public ICommand PushCommand { get; private set; }
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		/// <summary>
-		/// 値が変更されたことをViewへ通知する
-		/// </summary>
-		/// <param name="propertyName"></param>
-		private void NotifyPropertyChanged([CallerMemberName]string propertyName = null)
-		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
+		public DelegateCommand PushCommand { get; private set; }
 	}
 }
