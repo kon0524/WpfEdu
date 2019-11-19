@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfEdu.Views"
         xmlns:vm="clr-namespace:WpfEdu.ViewModels"
+        xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         Title="MainWindow" Height="100" Width="300">
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
     <StackPanel>
         <TextBox x:Name="MyTextBox" Text="{Binding MyText}"/>
         <Button x:Name="MyButton" Content="押せ！" Command="{Binding PushCommand}"/>
