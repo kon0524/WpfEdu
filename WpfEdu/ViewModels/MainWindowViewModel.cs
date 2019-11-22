@@ -1,29 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using WpfEdu;
+﻿using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Commands;
+using WpfEdu.Models;
+using Prism.Unity;
+using Unity;
 
 namespace WpfEdu.ViewModels
 {
 	class MainWindowViewModel : BindableBase
 	{
+		private MessageProvider messageProvider;
+
 		/// <summary>
 		/// コンストラクタ
 		/// </summary>
-		public MainWindowViewModel()
+		public MainWindowViewModel(MessageProvider messageProvider)
 		{
+			// Model
+			this.messageProvider = messageProvider;
+
 			// 初期値を設定
-			MyText = "Hello World";
+			//MyText = "Hello World";
+			MyText = this.messageProvider.MsgEnglish;
 			PushCommand = new DelegateCommand(() =>
 			{
-				MyText = "こんにちわ世界";
+				MyText = this.messageProvider.MsgJapanese;
 			});
 		}
 
