@@ -1,9 +1,10 @@
-﻿<Application x:Class="WpfEdu.App"
+﻿<prism:PrismApplication x:Class="WpfEdu.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
              xmlns:local="clr-namespace:WpfEdu"
-             StartupUri="Views/MainWindow.xaml">
+             >
     <Application.Resources>
          
     </Application.Resources>
-</Application>
+</prism:PrismApplication>
